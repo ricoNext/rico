@@ -1,5 +1,22 @@
 import { defineConfig } from "vitepress";
 
+import fs from "fs";
+
+const articles = fs.readdirSync("./articles/OAuth");
+
+// 读取文件内容
+const articlesList = articles
+  .map((article) => {
+    const content = fs.readFileSync(`./articles/OAuth/${article}`, "utf-8");
+    const title = content.match(/# (.*)/)?.[1];
+    return {
+      text: title,
+      link: `/articles/OAuth/${article}`,
+    };
+  })
+  .sort((a: any, b: any) => a?.text?.localeCompare(b?.text));
+
+console.log(articlesList);
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Rico Next",
@@ -12,9 +29,14 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
-        text: "Note",
+        text: "个人笔记",
         activeMatch: "/notes/",
         items: [{ text: "工程类", link: "/notes/json-schema" }],
+      },
+      {
+        text: "技术摘抄",
+        activeMatch: "/articles/",
+        items: [{ text: "OAuth 2.0", link: "/articles/OAuth" }],
       },
       {
         text: "开源项目",
@@ -35,6 +57,16 @@ export default defineConfig({
             text: "2025",
             collapsed: true,
             items: [{ text: "JSON Schema", link: "/notes/json-schema" }],
+          },
+        ],
+      },
+      "/articles/": {
+        base: "",
+        items: [
+          {
+            text: "OAuth 2.0",
+            collapsed: true,
+            items: articlesList,
           },
         ],
       },
