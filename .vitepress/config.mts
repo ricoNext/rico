@@ -16,7 +16,6 @@ const articlesList = articles
   })
   .sort((a: any, b: any) => a?.text?.localeCompare(b?.text));
 
-console.log(articlesList);
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Rico Next",
