@@ -53,7 +53,10 @@ export default defineConfig({
           {
             text: "2025",
             collapsed: true,
-            items: [{ text: "JSON Schema", link: "/notes/json-schema" }],
+            items: [
+              { text: "JSON Schema", link: "/notes/json-schema" },
+              { text: "pnpm", link: "/notes/pnpm" },
+            ],
           },
         ],
       },
