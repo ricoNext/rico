@@ -56,6 +56,7 @@ export default defineConfig({
             items: [
               { text: "JSON Schema", link: "/notes/json-schema" },
               { text: "pnpm", link: "/notes/pnpm" },
+              { text: "GC 垃圾回收", link: "/notes/GC" },
             ],
           },
         ],
