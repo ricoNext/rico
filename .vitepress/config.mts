@@ -16,7 +16,6 @@ const articlesList = articles
   })
   .sort((a: any, b: any) => a?.text?.localeCompare(b?.text));
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Rico Next",
   lang: "zh-CN",
@@ -25,7 +24,6 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   themeConfig: {
     logo: "/logo.png",
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       {
         text: "个人笔记",
@@ -42,10 +40,10 @@ export default defineConfig({
         link: "/ts-enum-next",
         activeMatch: "/ts-enum-next/",
       },
-      {
-        text: "Super Rico",
-        link: "https://super-rico.vercel.app",
-      },
+      // {
+      //   text: "Super Rico",
+      //   link: "https://super-rico.vercel.app",
+      // },
     ],
 
     sidebar: {
