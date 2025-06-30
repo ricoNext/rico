@@ -28,7 +28,7 @@ export default defineConfig({
       {
         text: "个人笔记",
         activeMatch: "/notes/",
-        items: [{ text: "工程类", link: "/notes/json-schema" }],
+        link: "/notes/json-schema",
       },
       {
         text: "技术摘抄",
