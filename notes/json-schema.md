@@ -1,5 +1,32 @@
 # json-schema
 
+[[toc]]
+
+{{ 1 + 1 }}
+
+<span v-for="i in 3">{{ i }}</span>
+
+<script setup>
+import { ref } from 'vue'
+import { useData } from 'vitepress'
+
+const count = ref(0)
+const { page } = useData()
+</script>
+
+The count is: {{ count }}
+
+<button :class="$style.button" @click="count++">Increment</button>
+
+<pre>{{ page }}</pre>
+
+<style module>
+.button {
+  color: red;
+  font-weight: bold;
+}
+</style>
+
 JSON Schema 是一种基于 JSON 格式的声明性语言，用于描述和验证 JSON 数据的结构和约束。
 它类似于数据库中的表结构定义或 XML 的 XSD（XML Schema Definition），但专门针对 JSON 数据设计。
 以下是 JSON Schema 的核心概念和用途：
