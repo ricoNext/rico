@@ -1,15 +1,15 @@
 {
-  "packageManager": "pnpm@9.6.0",
-  "devDependencies": {
-    "@biomejs/biome": "2.1.2",
-    "@types/node": "^22.15.17",
-    "turbo": "^2.5.5",
-    "ultracite": "5.1.2",
-    "vitepress": "^1.6.3"
-  },
-  "scripts": {
-    "dev": "vitepress dev --port 9000",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
-  }
+	"packageManager": "pnpm@9.6.0",
+	"devDependencies": {
+		"@biomejs/biome": "2.1.2",
+		"@types/node": "^22.15.17",
+		"lefthook": "^1.12.2",
+		"turbo": "^2.5.5",
+		"ultracite": "5.1.2"
+	},
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"preview": "turbo preview"
+	}
 }
