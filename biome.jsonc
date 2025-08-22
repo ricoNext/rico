@@ -19,7 +19,7 @@
     "rules": {
       "recommended": false
     },
-    "includes": ["**", "!dist", "!apps/**"]
+    "includes": ["**/*.{js,jsx,ts,tsx}", "!dist", "!apps/**"]
   },
   "javascript": {
     "formatter": {

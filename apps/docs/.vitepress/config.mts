@@ -5,7 +5,7 @@ const articles = fs.readdirSync("./articles/OAuth");
 
 // 读取文件内容
 const articlesList = articles
-	.map((article) => {
+	.map(article => {
 		const content = fs.readFileSync(`./articles/OAuth/${article}`, "utf-8");
 		const title = content.match(/# (.*)/)?.[1];
 		return {

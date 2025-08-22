@@ -1,9 +1,12 @@
 {
-	"$schema": "https://turborepo.com/schema.json",
-	"tasks": {
-		"dev": {
-			"persistent": true,
-			"cache": false
-		}
-	}
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "docs#build": {
+      "cache": true
+    }
+  }
 }
