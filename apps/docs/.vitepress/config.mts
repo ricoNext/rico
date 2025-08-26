@@ -1,19 +1,21 @@
 import fs from "fs";
 import { defineConfig } from "vitepress";
 
-const articles = fs.readdirSync("./articles/OAuth");
-
 // 读取文件内容
-const articlesList = articles
-	.map(article => {
-		const content = fs.readFileSync(`./articles/OAuth/${article}`, "utf-8");
-		const title = content.match(/# (.*)/)?.[1];
-		return {
-			text: title,
-			link: `/articles/OAuth/${article}`,
-		};
-	})
-	.sort((a: any, b: any) => a?.text?.localeCompare(b?.text));
+const getList = (dirPath: string) => {
+	const dirArr = fs.readdirSync(`./articles/${dirPath}`);
+
+	return dirArr
+		.map(dir => {
+			const content = fs.readFileSync(`./articles/${dirPath}/${dir}`, "utf-8");
+			const title = content.match(/# (.*)/)?.[1];
+			return {
+				text: title,
+				link: `/articles/${dirPath}/${dir}`,
+			};
+		})
+		.sort((a: any, b: any) => a?.text?.localeCompare(b?.text));
+};
 
 export default defineConfig({
 	title: "Rico Next",
@@ -35,7 +37,10 @@ export default defineConfig({
 			{
 				text: "技术摘抄",
 				activeMatch: "/articles/",
-				items: [{ text: "OAuth 2.0", link: "/articles/OAuth" }],
+				items: [
+					{ text: "OAuth 2.0", link: "/articles/OAuth" },
+					{ text: "AI", link: "/articles/AI" },
+				],
 			},
 			{
 				text: "开源项目",
@@ -64,16 +69,27 @@ export default defineConfig({
 					},
 				],
 			},
-			"/articles/": {
+			"/articles/AI/": {
+				base: "",
+				items: [
+					{
+						text: "AI",
+						collapsed: true,
+						items: getList("AI"),
+					},
+				],
+			},
+			"/articles/OAuth/": {
 				base: "",
 				items: [
 					{
 						text: "OAuth 2.0",
 						collapsed: true,
-						items: articlesList,
+						items: getList("OAuth"),
 					},
 				],
 			},
+
 			"/ts-enum-next/": {
 				base: "",
 				items: [{ text: "首页", link: "/ts-enum-next/index" }],
